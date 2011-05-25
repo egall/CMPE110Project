@@ -1,15 +1,14 @@
 C = gcc
-SOURCES = project1.c project2.c test.c
-HEADERS = project1.h project2.h test.h
+SOURCES = project1.c project2.c project3.c test.c
+HEADERS = project1.h project2.h project3.h 
 TURNIN  = README Makefile
 SUBMIT  = $(HEADERS) $(SOURCES) $(TURNIN)
-OBJ     = project1.o project2.o test.o
-LINKOBJ = project1.o project2.o test.o
+OBJ     = project1.o project2.o project3.o test.o
+LINKOBJ = project1.o project2.o project3.o test.o
 
 BIN = test
-RM = rm -f *~
+RM = rm -f *~ 
 
-PHONY:all clean
 
 all: $(BIN)
 clean:
@@ -22,5 +21,5 @@ $(BIN): $(OBJ)
 	$(C) -c $<
 
 submit:
-	submit cmpe100-fjf p2 $(SUBMIT)
+	submit cmpe100-fjf p3 $(SUBMIT)
 
