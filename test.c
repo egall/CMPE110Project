@@ -10,19 +10,25 @@
 
 int main(){
   int itor;
-  unsigned char* in;
-  unsigned char* out;
-  in = malloc(32*sizeof(unsigned char) );
-  out = malloc(32*sizeof(unsigned char) );
+  unsigned char* in32;
+  unsigned char* out32;
+  unsigned char* in16;
+  in32 = malloc(32*sizeof(unsigned char) );
+  in16 = malloc(32*sizeof(unsigned char) );
+  out32 = malloc(32*sizeof(unsigned char) );
 
   for(itor = 0; itor < 31; itor++){
-    in[itor] = '1';
-    out[itor] = '0';
+    if(itor < 16){ in16[itor] = '0';}
+    in32[itor] = '1';
+    out32[itor] = '0';
   }
 
-  shiftleft2x(out, in);
+  shiftleft2x(out32, in32);
   printf("shift left\n");
-  print_bits(out);
+  print_bits(out32);
+  signextend(out32, in16);
+  printf("\nsign extend\n");
+  print_bits(out32);
   return 0;
 
 }
